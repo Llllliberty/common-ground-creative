@@ -1,29 +1,97 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
-const proof = [
-  ['01', 'Market intelligence', 'Know where your brand fits before you invest.'],
-  ['02', 'Local growth strategy', 'A focused plan for the Australian customer.'],
-  ['03', 'Expert-backed execution', 'Human specialists turn the plan into market activity.'],
+const steps = [
+  ['01', 'Quick Input', 'Add your website, product and market goal.'],
+  ['02', 'AI Snapshot', 'Reveal local opportunities and audience signals.'],
+  ['03', 'AI Consultant', 'Answer only the follow-up questions that matter.'],
+  ['04', 'Final Report', 'Receive a structured plan your team can execute.'],
+];
+
+const marqueeItems = [
+  'Australian customer signals',
+  'Local positioning',
+  'Channel priorities',
+  'Launch budget',
+  'Creator strategy',
+  'Campaign planning',
 ];
 
 export default function Home() {
   return (
-    <main className="site-shell">
-      <nav className="top-nav">
-        <Link className="wordmark" href="/">COMMON<span>GROUND</span><i>®</i></Link>
-        <div className="nav-links"><a href="#approach">How it works</a><a href="#why">Why Australia</a></div>
-        <Link className="nav-cta" href="/agent">Build your plan <span>↗</span></Link>
+    <main className="arc-page">
+      <nav className="arc-nav" aria-label="Primary navigation">
+        <Link className="arc-brand" href="/" aria-label="Common Ground Creative home">
+          <Image src="/brand/common-ground-creative-logo-orange.png" alt="Common Ground Creative" width={1774} height={887} priority />
+        </Link>
+        <div className="arc-nav-links">
+          <a href="#how-it-works">How it works</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#reports">Reports</a>
+          <a href="#about">About</a>
+        </div>
+        <Link className="arc-nav-cta" href="/agent">Start analysis</Link>
       </nav>
-      <section className="hero">
-        <div className="hero-kicker"><span className="pulse" /> AUSTRALIAN MARKET ENTRY, REIMAGINED</div>
-        <h1>Find your<br /><em>common ground</em><br />in Australia.</h1>
-        <div className="hero-foot"><p>For ambitious DTC brands ready to land, learn and grow in Australia — with strategy that begins in days, not months.</p><Link href="/agent" className="primary-button">Start your market brief <span>↗</span></Link></div>
-        <div className="hero-grid" aria-hidden="true"><span>AUS</span><span>01</span><span>SYD / MEL / BNE</span><span>CGC</span></div>
+
+      <section className="arc-hero" id="about">
+        <div className="arc-hero-copy">
+          <p className="arc-kicker">AI MARKET ENTRY PLATFORM / AUSTRALIA</p>
+          <h1>Enter Australia.<br />Execute with<br />confidence.</h1>
+          <p className="arc-intro">Turn market insight into an executable Australian growth plan — powered by AI and reviewed by marketing specialists.</p>
+          <Link className="arc-primary-button" href="/agent">Build my plan <span>→</span></Link>
+        </div>
+
+        <aside className="snapshot-card" aria-label="Example market snapshot">
+          <p className="arc-kicker">LIVE DEMO PREVIEW</p>
+          <h2>Intelligent<br />Market Snapshot</h2>
+          <p className="snapshot-context">Brand: Xiaomi <i>/</i> Product: YU7 GT</p>
+          <div className="snapshot-grid">
+            <div><span>Opportunity</span><strong>82 / 100</strong></div>
+            <div><span>Priority</span><strong>HIGH</strong></div>
+            <div><span>Customer segments</span><strong>03</strong></div>
+            <div><span>Channels</span><strong>05</strong></div>
+          </div>
+        </aside>
       </section>
-      <section className="statement" id="approach"><p className="eyebrow">THE GAP BETWEEN INSIGHT &amp; ACTION</p><h2>Australia is not<br />a copy-and-paste<br /><em>market.</em></h2><div className="statement-copy">You have a product with momentum. We help you translate it for a new audience, a new culture and a new growth curve — without building an in-house team first.</div></section>
-      <section className="steps"><div className="steps-title"><p className="eyebrow">ONE CLEAR PATH</p><h2>From first<br />signal to launch.</h2></div><div className="step-list">{proof.map(([number, title, text]) => <article className="step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><b>↗</b></article>)}</div></section>
-      <section className="brief-banner" id="why"><p className="eyebrow">YOUR ENTRY POINT</p><h2>Start with a<br /><em>market brief.</em></h2><p>Tell our AI about your brand. In one guided conversation, get an initial view of your Australian opportunity and the next moves worth making.</p><Link href="/agent" className="primary-button">Create my brief <span>↗</span></Link><div className="banner-mark">CG<br />C</div></section>
-      <footer><Link className="wordmark" href="/">COMMON<span>GROUND</span><i>®</i></Link><p>Built for brands entering Australia.</p><p>© 2026 Common Ground Creative</p></footer>
+
+      <section className="arc-process" id="how-it-works">
+        <header>
+          <p className="arc-kicker">HOW IT WORKS</p>
+          <h2>A direct path from input to<br />action.</h2>
+        </header>
+        <div className="arc-step-grid">
+          {steps.map(([number, title, description]) => (
+            <article key={number}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="arc-marquee" id="solutions" aria-label="What your market brief covers">
+        <p className="arc-kicker">WHAT YOUR PLAN COVERS</p>
+        <div className="scroller" data-animated="true" data-speed="slow">
+          <ul className="tag-list scroller__inner">
+            {marqueeItems.map((item) => <li key={item}>{item}</li>)}
+            {marqueeItems.map((item) => <li key={`${item}-duplicate`} aria-hidden="true">{item}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section className="arc-report" id="reports">
+        <p className="arc-kicker">A PLAN BUILT TO MOVE</p>
+        <h2>From local context<br />to clear next moves.</h2>
+        <p>Use an AI-led working session to turn your business context into a focused Australian opportunity, then move forward with a practical plan and specialist support.</p>
+        <Link className="arc-primary-button" href="/agent">Start analysis <span>→</span></Link>
+      </section>
+
+      <footer className="arc-footer">
+        <Image src="/brand/common-ground-creative-logo-orange.png" alt="Common Ground Creative" width={1774} height={887} />
+        <span>Built for brands entering Australia.</span>
+        <span>© 2026</span>
+      </footer>
     </main>
   );
 }

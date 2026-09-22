@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@common-ground/shared": "workspace:*",
-    "fastify": "^5.12.5"
+    "@fastify/cors": "^11.3.0",
+    "@fastify/multipart": "^10.1.1",
+    "fastify": "^5.12.5",
+    "pdf-parse": "^2.4.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

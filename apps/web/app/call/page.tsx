@@ -1,7 +1,5 @@
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
+import CallWorkspace from './call-workspace';
+
 export default function CallPage() {
-  const [active, setActive] = useState(true);
-  return <main className="call-page"><nav className="call-nav"><Link className="wordmark" href="/">COMMON<span>GROUND</span><i>®</i></Link><Link className="back-link" href="/agent">← BACK TO BRIEF</Link></nav><section className="call-main"><p className="eyebrow">MARKET ENTRY SESSION / LIVE</p><h1>{active ? <>Meet your<br /><em>Australian guide.</em></> : <>Your call<br /><em>is complete.</em></>}</h1><p>{active ? 'A short guided conversation with Maya, your virtual growth advisor. We’ll turn the early signal into the context our specialists need.' : 'Your conversation context has been saved. Our team will use it to prepare your tailored market-entry report.'}</p><div className="caller"><div>{active ? 'M' : '✓'}</div></div>{active ? <div className="call-controls"><button className="circle-control" aria-label="Mute microphone">⌁</button><button className="circle-control" aria-label="Turn off video">◉</button><button className="circle-control end" onClick={() => setActive(false)} aria-label="End call">⌕</button></div> : <Link className="primary-button" href="/agent">Return to your brief <span>↗</span></Link>}</section><footer className="call-note"><span>{active ? '● CONNECTED TO MAYA' : '● CONTEXT SAVED'}</span><span>{active ? '00:00:12' : 'REPORT PREPARATION: NEXT'}</span></footer></main>;
+  return <CallWorkspace />;
 }
